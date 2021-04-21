@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Blossomic.Models
 {
@@ -18,5 +19,8 @@ namespace Blossomic.Models
 
         [JsonPropertyName("_width")]
         public int Width { get; set; }
+
+        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public JsonElement CustomData { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Blossomic.Converters;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Blossomic.Models
@@ -20,5 +21,8 @@ namespace Blossomic.Models
 
         [JsonPropertyName("_noteJumpStartBeatOffset")]
         public float Offset { get; set; }
+
+        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public JsonElement CustomData { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Blossomic.Models
         [JsonPropertyName("_value")]
         public int Value { get; set; }
 
-        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public JsonElement CustomData { get; set; }
     }
 }

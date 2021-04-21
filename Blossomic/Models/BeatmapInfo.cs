@@ -15,6 +15,9 @@ namespace Blossomic.Models
         [JsonPropertyName("_songSubName")]
         public string SongSubName { get; set; } = null!;
 
+        [JsonPropertyName("_songAuthorName")]
+        public string SongAuthorName { get; set; } = null!;
+
         [JsonPropertyName("_levelAuthorName")]
         public string LevelAuthorName { get; set; } = null!;
 
@@ -42,7 +45,7 @@ namespace Blossomic.Models
         [JsonPropertyName("_songTimeOffset")]
         public float SongTimeOffset { get; set; }
 
-        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public JsonElement CustomData { get; set; }
 
         [JsonPropertyName("_difficultyBeatmapSets")]
@@ -51,7 +54,7 @@ namespace Blossomic.Models
         [JsonPropertyName("_songFilename")]
         public string SongFileName { get; set; } = null!;
 
-        [JsonPropertyName("_allDirectionsEnvironmentName"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("_allDirectionsEnvironmentName"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string? AllDirectionsEnvironmentName { get; set; } = null!;
     }
 }

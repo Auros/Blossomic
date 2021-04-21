@@ -18,7 +18,7 @@ namespace Blossomic.Models
         [JsonPropertyName("_obstacles")]
         public List<Obstacle> Obstacles { get; set; } = new();
 
-        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public JsonElement CustomData { get; set; }
     }
 }

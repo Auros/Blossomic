@@ -20,7 +20,7 @@ namespace Blossomic.Models
         [JsonPropertyName("_cutDirection")]
         public NoteCutDirection CutDirection { get; set; }
 
-        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public JsonElement CustomData { get; set; }
     }
 }
