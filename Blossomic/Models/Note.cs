@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+﻿using Blossomic.Noodle;
 using System.Text.Json.Serialization;
 
 namespace Blossomic.Models
@@ -20,7 +20,7 @@ namespace Blossomic.Models
         [JsonPropertyName("_cutDirection")]
         public NoteCutDirection CutDirection { get; set; }
 
-        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public JsonElement CustomData { get; set; }
+        [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public CustomNoteData? CustomData { get; set; }
     }
 }

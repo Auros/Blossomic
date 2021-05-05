@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Blossomic.Models
@@ -19,6 +18,6 @@ namespace Blossomic.Models
         public List<Obstacle> Obstacles { get; set; } = new();
 
         [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public JsonElement CustomData { get; set; }
+        public BeatmapDifficultyCustomData? CustomData { get; set; }
     }
 }
