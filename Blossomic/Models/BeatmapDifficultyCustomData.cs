@@ -7,8 +7,8 @@ namespace Blossomic.Models
 {
     public class BeatmapDifficultyCustomData
     {
-        [JsonIgnore]
-        internal List<JsonProperty> UnhandledProperties { get; set; } = new();
+        [JsonExtensionData]
+        public Dictionary<string, object> ExtensionData { get; set; } = new();
 
         [JsonPropertyName("_pointDefinitions")]
         public List<SerializedPointDefinition> SerializedPointDefinitions { get; set; } = new();

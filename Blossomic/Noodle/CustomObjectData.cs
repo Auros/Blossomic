@@ -7,8 +7,8 @@ namespace Blossomic.Noodle
 {
     public class CustomObjectData
     {
-        [JsonIgnore]
-        internal List<JsonProperty> UnhandledProperties { get; set; } = new();
+        [JsonExtensionData]
+        public Dictionary<string, object> ExtensionData { get; set; } = new();
 
         [JsonPropertyName("_track"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string Track { get; set; } = null!;
