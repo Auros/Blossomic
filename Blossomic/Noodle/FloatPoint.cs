@@ -7,12 +7,51 @@ namespace Blossomic.Noodle
 {
     public class FloatPointDefinition : PointDefinition<float>
     {
+        public FloatPointDefinition()
+        {
 
+        }
+
+        public FloatPointDefinition(List<Point<float>> points)
+        {
+            Points = points;
+        }
     }
 
-    internal class FloatPoint : Point<float>
+    public class FloatPoint : Point<float>
     {
-        public override void Load(IEnumerable<object> pointArray)
+        public FloatPoint()
+        {
+
+        }
+
+        public FloatPoint(float value)
+        {
+            Value = value;
+        }
+
+        public FloatPoint(float value, float time)
+        {
+            Value = value;
+            Time = time;
+        }
+
+        public FloatPoint(float value, float time, EaseType easing)
+        {
+            Value = value;
+            Time = time;
+            Easing = easing;
+        }
+
+        public FloatPoint(float value, float time, EaseType easing, SplineType spline)
+        {
+            Value = value;
+            Time = time;
+            Easing = easing;
+            Spline = spline;
+        }
+
+        internal override void Load(IEnumerable<object> pointArray)
         {
             try
             {
@@ -26,7 +65,7 @@ namespace Blossomic.Noodle
             catch (Exception e) { throw new InvalidPointDataException(nameof(FloatPoint), e); }
         }
 
-        public override IEnumerable<object> Save()
+        internal override IEnumerable<object> Save()
         {
             object[] values = new object[4];
             values[0] = Value;

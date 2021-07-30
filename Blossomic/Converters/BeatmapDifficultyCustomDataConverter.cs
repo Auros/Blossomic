@@ -9,12 +9,15 @@ namespace Blossomic.Converters
     {
         public override BeatmapDifficultyCustomData? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            throw new NotImplementedException();
+            var beatmapData = JsonSerializer.Deserialize<BeatmapDifficultyCustomData>(ref reader, options);
+            beatmapData?.Load();
+            return beatmapData;
         }
 
         public override void Write(Utf8JsonWriter writer, BeatmapDifficultyCustomData value, JsonSerializerOptions options)
         {
-            throw new NotImplementedException();
+            value.Save();
+            JsonSerializer.Serialize(writer, value, options);
         }
     }
 }

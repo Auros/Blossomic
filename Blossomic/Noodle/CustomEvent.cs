@@ -37,6 +37,7 @@ namespace Blossomic.Noodle
             }
             set
             {
+                _data = value;
                 if (_data != null)
                     SerializedData = JsonSerializer.Deserialize<JsonElement>(JsonSerializer.Serialize(_data, _data.GetType()));
             }

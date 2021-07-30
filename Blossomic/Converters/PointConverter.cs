@@ -36,7 +36,10 @@ namespace Blossomic.Converters
 
         public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
         {
-            JsonSerializer.Serialize(writer, value.Points?.SelectMany(v => v.Save()) ?? null, typeof(object[][]), options);
+            if (string.IsNullOrEmpty(value.Name))
+                JsonSerializer.Serialize(writer, value.Points?.Select(v => v.Save().ToArray()).ToList(), typeof(List<object[]>), options);
+            else
+                JsonSerializer.Serialize(writer, value.Name, typeof(string), options);
         }
 
         private static IEnumerable<object> Process(IEnumerable<JsonElement> elements)

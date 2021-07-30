@@ -7,19 +7,76 @@ namespace Blossomic.Noodle
 {
     public class VectorPointDefinition : PointDefinition<Vector>
     {
+        public VectorPointDefinition()
+        {
 
+        }
+
+        public VectorPointDefinition(List<Point<Vector>> points)
+        {
+            Points = points;
+        }
     }
 
     public class Vector
     {
+        public Vector()
+        {
+
+        }
+
+        public Vector(float x, float y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        public Vector(float x, float y, float z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+        }
+
         public float? X { get; set; }
         public float? Y { get; set; }
         public float? Z { get; set; }
     }
 
-    internal class VectorPoint : Point<Vector>
+    public class VectorPoint : Point<Vector>
     {
-        public override void Load(IEnumerable<object> pointArray)
+        public VectorPoint()
+        {
+
+        }
+
+        public VectorPoint(Vector vector)
+        {
+            Value = vector;
+        }
+
+        public VectorPoint(Vector vector, float time)
+        {
+            Value = vector;
+            Time = time;
+        }
+
+        public VectorPoint(Vector vector, float time, EaseType easing)
+        {
+            Value = vector;
+            Time = time;
+            Easing = easing;
+        }
+
+        public VectorPoint(Vector vector, float time, EaseType easing, SplineType spline)
+        {
+            Value = vector;
+            Time = time;
+            Easing = easing;
+            Spline = spline;
+        }
+
+        internal override void Load(IEnumerable<object> pointArray)
         {
             try
             {
@@ -43,7 +100,7 @@ namespace Blossomic.Noodle
             catch (Exception e) { throw new InvalidPointDataException(nameof(VectorPoint), e); }
         }
 
-        public override IEnumerable<object> Save()
+        internal override IEnumerable<object> Save()
         {
             object[] values = new object[6];
             values[0] = Value.X!;

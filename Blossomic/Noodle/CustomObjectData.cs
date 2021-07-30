@@ -1,6 +1,5 @@
 ﻿using Blossomic.Converters;
 using System.Collections.Generic;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Blossomic.Noodle
@@ -36,5 +35,8 @@ namespace Blossomic.Noodle
 
         [JsonPropertyName("_interactable"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? Interactable { get; set; }
+
+        [JsonPropertyName("_animation"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public CustomObjectAnimation? Animation { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Blossomic.Converters;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Blossomic.Models
@@ -17,6 +18,7 @@ namespace Blossomic.Models
         [JsonPropertyName("_obstacles")]
         public List<Obstacle> Obstacles { get; set; } = new();
 
+        [JsonConverter(typeof(BeatmapDifficultyCustomDataConverter))]
         [JsonPropertyName("_customData"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public BeatmapDifficultyCustomData? CustomData { get; set; }
     }

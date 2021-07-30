@@ -30,8 +30,8 @@ namespace Blossomic.Noodle
         public EaseType Easing { get; set; }
         public SplineType Spline { get; set; }
 
-        public abstract void Load(IEnumerable<object> pointArray);
-        public abstract IEnumerable<object> Save();
+        internal abstract void Load(IEnumerable<object> pointArray);
+        internal abstract IEnumerable<object> Save();
     
         protected void LoadDefaults(ref IEnumerable<object> pointArray, int timeIndex)
         {

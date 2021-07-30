@@ -7,12 +7,51 @@ namespace Blossomic.Noodle
 {
     public class BoolPointDefinition : PointDefinition<bool>
     {
+        public BoolPointDefinition()
+        {
 
+        }
+
+        public BoolPointDefinition(List<Point<bool>> points)
+        {
+            Points = points;
+        }
     }
 
-    internal class BoolPoint : Point<bool>
+    public class BoolPoint : Point<bool>
     {
-        public override void Load(IEnumerable<object> pointArray)
+        public BoolPoint()
+        {
+
+        }
+
+        public BoolPoint(bool value)
+        {
+            Value = value;
+        }
+
+        public BoolPoint(bool value, float time)
+        {
+            Value = value;
+            Time = time;
+        }
+
+        public BoolPoint(bool value, float time, EaseType easing)
+        {
+            Value = value;
+            Time = time;
+            Easing = easing;
+        }
+
+        public BoolPoint(bool value, float time, EaseType easing, SplineType spline)
+        {
+            Value = value;
+            Time = time;
+            Easing = easing;
+            Spline = spline;
+        }
+
+        internal override void Load(IEnumerable<object> pointArray)
         {
             try
             {
@@ -26,7 +65,7 @@ namespace Blossomic.Noodle
             catch (Exception e) { throw new InvalidPointDataException(nameof(BoolPoint), e); }
         }
 
-        public override IEnumerable<object> Save()
+        internal override IEnumerable<object> Save()
         {
             object[] values = new object[4];
             values[0] = Value ? 1 : 0;

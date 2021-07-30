@@ -9,6 +9,6 @@ namespace Blossomic.Noodle
         public string? Name { get; set; }
 
         [JsonPropertyName("_points")]
-        public List<Point<TPointType>>? Points { get; set; } = null;
+        public List<Point<TPointType>>? Points { get; set; } = new();
     }
 }

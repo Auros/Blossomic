@@ -7,20 +7,90 @@ namespace Blossomic.Noodle
 {
     public class ColorPointDefinition : PointDefinition<Color>
     {
+        public ColorPointDefinition()
+        {
 
+        }
+
+        public ColorPointDefinition(List<Point<Color>> points)
+        {
+            Points = points;
+        }
     }
 
     public class Color
     {
+        public Color()
+        {
+
+        }
+
+        public Color (float rgb)
+        {
+            R = G = B = rgb;
+        }
+
+        public Color (float rgb, float a = 1f)
+        {
+            R = G = B = rgb;
+            A = a;
+        }
+
+        public Color(float r, float g, float b)
+        {
+            R = r;
+            G = g;
+            B = b;
+        }
+
+        public Color(float r, float g, float b, float a)
+        {
+            R = r;
+            G = g;
+            B = b;
+            A = a;
+        }
+
         public float R { get; set; }
         public float G { get; set; }
         public float B { get; set; }
-        public float A { get; set; }
+        public float A { get; set; } = 1f;
     }
 
-    internal class ColorPoint : Point<Color>
+    public class ColorPoint : Point<Color>
     {
-        public override void Load(IEnumerable<object> pointArray)
+        public ColorPoint()
+        {
+
+        }
+
+        public ColorPoint(Color color)
+        {
+            Value = color;
+        }
+
+        public ColorPoint(Color color, float time)
+        {
+            Value = color;
+            Time = time;
+        }
+
+        public ColorPoint(Color color, float time, EaseType easing)
+        {
+            Value = color;
+            Time = time;
+            Easing = easing;
+        }
+
+        public ColorPoint(Color color, float time, EaseType easing, SplineType spline)
+        {
+            Value = color;
+            Time = time;
+            Easing = easing;
+            Spline = spline;
+        }
+
+        internal override void Load(IEnumerable<object> pointArray)
         {
             try
             {
@@ -49,7 +119,7 @@ namespace Blossomic.Noodle
             catch (Exception e) { throw new InvalidPointDataException(nameof(ColorPoint), e); }
         }
 
-        public override IEnumerable<object> Save()
+        internal override IEnumerable<object> Save()
         {
             object[] values = new object[7];
             values[0] = Value.R;
