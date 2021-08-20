@@ -23,7 +23,6 @@ namespace BlossomicPlayground
             BeatmapDifficulty testDiff = await JsonSerializer.DeserializeAsync<BeatmapDifficulty>(testDiffFile.OpenRead());
 
             testDiff.CustomData.CustomEvents.ForEach(x => _ = x);
-            System.Console.WriteLine("I love oddloop <3");
             using Stream testInfoSave = File.Create(Path.Combine(@"C:\Users\Auros\Desktop\test-info.json"));
             using Stream testDiffSave = File.Create(Path.Combine(@"C:\Users\Auros\Desktop\test-diff.json"));
 

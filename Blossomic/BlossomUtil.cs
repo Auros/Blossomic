@@ -7,12 +7,9 @@ namespace Blossomic
 {
     public class BlossomUtil
     {
-        // PUT DEFAULT JSON CONVERTER WITH INTERFACE CONVERTER
-
         public static async Task<BeatmapDifficulty> Load(string path)
         {
             FileInfo diffFile = new(path);
-
             BeatmapDifficulty diff = (await JsonSerializer.DeserializeAsync<BeatmapDifficulty>(diffFile.OpenRead()))!;
             return diff;
         }
