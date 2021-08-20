@@ -14,7 +14,6 @@ namespace BlossomicPlayground
 
         private static async Task UWU()
         {
-            //var uwu = "d00c (ANALYS - Reaxt)";
             var uwu = "ed2a (NULCTRL MEISO FLIP - Reaxt)";
             FileInfo testInfoFile = new($@"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\CustomLevels\{uwu}\Info.dat");
             FileInfo testDiffFile = new($@"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\CustomLevels\{uwu}\ExpertPlusStandard.dat");
