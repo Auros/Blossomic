@@ -7,12 +7,7 @@ namespace BlossomicPlayground
 {
     public class Program
     {
-        public static Task Main(string[] _)
-        {
-            return UWU();
-        }
-
-        private static async Task UWU()
+        public static async Task Main(string[] __)
         {
             var uwu = "ed2a (NULCTRL MEISO FLIP - Reaxt)";
             FileInfo testInfoFile = new($@"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\CustomLevels\{uwu}\Info.dat");
